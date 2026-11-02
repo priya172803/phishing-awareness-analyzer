@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Offline phishing awareness analyzer for URLs and synthetic email samples.">
+  <title>PhishGuard — Phishing Awareness Analyzer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="PhishGuard home"><span class="brand-mark">盾</span><span>Phish<span class="brand-accent">Guard</span></span></a>
+    <span class="offline-pill"><span class="pulse"></span> Offline analysis</span>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero">
+      <div class="eyebrow"><span class="eyebrow-line"></span> CYBERSECURITY • AWARENESS TOOL</div>
+      <h1>Think before<br><span>you click.</span></h1>
+      <p class="hero-copy">Check suspicious links for common phishing signals. Get a clear risk breakdown before you trust a URL.</p>
+      <div class="trust-row">
+        <span>✓ No link is opened</span><span>✓ No network requests</span><span>✓ No passwords collected</span>
+      </div>
+    </section>
+
+    <section class="analyzer-card" aria-labelledby="analyzer-title">
+      <div class="card-heading">
+        <div>
+          <div class="section-kicker">LINK INSPECTION</div>
+          <h2 id="analyzer-title">URL analyzer</h2>
+        </div>
+        <span class="step-tag">01 / 02</span>
+      </div>
+      <label for="urlInput" class="field-label">Paste the URL you want to check</label>
+      <div class="input-wrap">
+        <span class="input-icon">↗</span>
+        <input id="urlInput" type="text" autocomplete="off" spellcheck="false" placeholder="https://example.com/login">
+        <button id="analyzeBtn" type="button">Analyze URL <span>→</span></button>
+      </div>
+      <div class="field-hint">Tip: You can paste a full link or a domain name. The analyzer only inspects the text.</div>
+      <div class="sample-row">
+        <span>TRY A SAMPLE</span>
+        <button type="button" class="sample-link" id="sampleBtn">paypaI-security.example ↗</button>
+      </div>
+      <p class="error-message" id="errorMessage" role="alert" hidden></p>
+    </section>
+
+    <section class="results" id="results" aria-live="polite" hidden>
+      <div class="results-top">
+        <div>
+          <div class="section-kicker">ANALYSIS REPORT</div>
+          <h2>URL assessment</h2>
+        </div>
+        <span class="risk-chip" id="riskChip">—</span>
+      </div>
+      <div class="score-panel">
+        <div class="score-number"><strong id="riskScore">0</strong><span>/ 100</span></div>
+        <div class="score-copy"><strong id="scoreTitle">Risk score</strong><p id="scoreDescription">Signals found in the submitted URL.</p></div>
+        <div class="score-meter"><div id="scoreFill"></div></div>
+      </div>
+      <div class="checked-url"><span>CHECKED URL</span><p id="checkedUrl"></p></div>
+      <div class="findings-heading"><h3>Detected indicators</h3><span id="findingCount">0 findings</span></div>
+      <div id="findingsList" class="findings-list"></div>
+      <div class="disclaimer"><span class="info-icon">i</span><p><strong>Educational estimate, not a verdict.</strong> These heuristic checks can produce false positives and may miss phishing links. A low score does not guarantee that a URL is safe. Verify unexpected requests through a known official channel.</p></div>
+      <button type="button" class="reset-btn" id="resetBtn">Check another URL</button>
+    </section>
+
+    <section class="how-section">
+      <div class="section-kicker">WHAT WE LOOK FOR</div>
+      <h2>Small clues. <span>Big difference.</span></h2>
+      <div class="feature-grid">
+        <article class="feature"><span class="feature-icon">⌕</span><h3>Lookalike domains</h3><p>Checks for domains that resemble well-known brands.</p></article>
+        <article class="feature"><span class="feature-icon">#</span><h3>IP-based links</h3><p>Flags links that use a raw IP address instead of a domain.</p></article>
+        <article class="feature"><span class="feature-icon">⇢</span><h3>URL structure</h3><p>Highlights unusual subdomain depth and embedded credentials.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>PhishGuard · CodeNova Cybersecurity Task 2</span><span>Runs locally in your browser</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
